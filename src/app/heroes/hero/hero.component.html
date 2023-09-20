@@ -1,0 +1,45 @@
+<h1>Spiderman</h1>
+<!-- Lista-->
+<dl>
+
+  <td><strong>Nombre:</strong></td>
+  <dd>{{name}}</dd>
+
+  <td><strong>Edad:</strong></td>
+  <dd>{{age}}</dd>
+
+  <td><strong>Método:</strong></td>
+  <dd>{{getHeroDescription()}}</dd>
+
+  <td><strong>Capitalizado:</strong></td>
+  <dd>{{capitalizedName}}</dd>
+</dl>
+
+
+<button
+
+  *ngIf="name !== 'Capitan América'"
+
+  (click)="changeHero()"
+  class="btn btn-primary mx-2" >
+  Cambiar Nombre
+</button>
+
+<button
+
+  *ngIf="age !== 45"
+
+  (click)="changeAge()"
+  class="btn btn-primary">
+  Cambiar edad
+</button>
+
+<button
+
+  (click)="resetForm()"
+  class="btn btn-primary mx-2">
+  Resetea Formulario
+</button>
+
+
+

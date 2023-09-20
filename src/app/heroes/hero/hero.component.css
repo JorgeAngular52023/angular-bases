@@ -1,0 +1,11 @@
+/*
+Definimos css para módulo hero
+*/
+h1 {
+    font-size: 50px;
+}
+
+dd {
+  font-size: 2rem;
+  font-weight: bold;
+}
