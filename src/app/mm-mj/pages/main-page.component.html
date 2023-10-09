@@ -1,0 +1,81 @@
+<h1>{{ MainText }}</h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+
+    <p>Listado</p>
+    <ol class="list-group">
+      <li *ngFor="let character of characters;
+                  let i = index;
+                  let isfirst = first;
+                  let isLast = last;
+                  let isEven = even;
+                  let isOdd = odd;"
+                  class="list-group-item"
+                  [ngClass]="{ 'list-group-item-success': isfirst,
+                  'list-group-item-primary': isLast,
+                  'list-group-item-dark': isEven
+                 }">
+                  <span class="text-primary"> {{i}}.&nbsp;</span>
+                  {{character.descripcionSeguro}} - {{character.importeSeguro}}
+      </li>
+  </ol>
+
+    <!--Mostramos lista (se carga desde elmain-page.comoponent.ts)-->
+    <mmmj-list (onNewCharacter)="onNewCharacter"></mmmj-list>
+    <br>
+    <hr>
+    <br>
+    <add-character>
+      {{ characters }}
+    </add-character>
+
+  </div>
+
+</div>
+<!--
+Colorea toda la lista
+class="list-group-item list-group-item-success">
+
+Colorea toda la lista
+[ngClass]="{ 'list-group-item-success': true }">
+
+colorea solo el primero la lista
+class="list-group-item {{ i === 0 ? 'list-group-item-success': ''}}">
+
+colorea solo el primero la lista
+[ngClass]="{ 'list-group-item-success': isfirst }">
+
+colorea solo el último la lista
+[ngClass]="{ 'list-group-item-success': isLast }">
+
+número de registro
+let i = index;
+
+si es el primero de la lista
+let isfirst = first;
+
+si es el último de la lista
+let isLast = last;
+
+si es par
+let isEven = even;
+
+si es impar
+let isOdd = odd;"
+
+Para empezar contador en 1
+<span class="text-primary"> {{i + 1}}.&nbsp;</span>
+
+'list-group-item-light':
+'list-group-item-success':
+'list-group-item-primary':
+'list-group-item-dark':
+
+<span> El primero: {{isfirst}}</span>
+<span> El último: {{i === characters.length - 1}}</span>
+<span> El último: {{isLast}}</span>
+<span> Es par: {{isEven}}</span>
+<span> Es impar: {{isOdd}}</span>
+-->

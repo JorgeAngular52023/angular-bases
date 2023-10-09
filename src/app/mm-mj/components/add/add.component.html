@@ -1,0 +1,37 @@
+<p>Añadir Seguros!</p>
+
+<div class="col">
+  <h4>Seguro nuevo</h4>
+  <form class="row" (ngSubmit)="AddSeguro()">
+    <input type="text"class="form-control mb-2" placeholder="Seguro">
+
+    <input type="text"
+    [(ngModel)]="character.descripcionSeguro"
+    name="descripcionSeguro"
+    class="form-control mb-2"
+    placeholder="Decripción">
+
+    <input type="number"
+    [(ngModel)]="character.importeSeguro"
+    name="importeSeguro"
+    class="form-control mb-2"
+    placeholder="Importe">
+    <br>
+    <button (click)="AddSeguro()" type="submit" class="btn btn-primary">
+      Añadir Seguro
+    </button>
+
+    <pre>{{ character | json }}</pre>
+
+  </form>
+ </div>
+
+
+
+ <!--
+  Recupera valor de la clase definidad en el .ts
+ <input type="text" [value]="character.descripcionSeguro" class="form-control mb-2" placeholder="Decripción">
+
+ Pipes (|)
+ <pre>{{ character | json }}</pre>
+ -->
