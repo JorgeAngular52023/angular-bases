@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { Countermodule } from './Counter/components/counter/counter.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { MainPageModule } from './mm-mj/services/mm-mj.module';
+import { mmmjservice } from './mm-mj/services/mm-mj.service';
 
 @NgModule({
   declarations: [

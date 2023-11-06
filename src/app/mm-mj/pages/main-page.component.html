@@ -1,38 +1,48 @@
-<h1>{{ MainText }}</h1>
+<script>import { v4 as uuid } from 'uuid';
+id: uuid()
+</script>
+
+<h1>{{ mmmjservice.MainText }}</h1>
 <hr>
 
 <div class="row">
-  <div class="col">
+
+
 
     <p>Listado</p>
     <ol class="list-group">
-      <li *ngFor="let character of characters;
+      <li *ngFor="let mmmjservice of mmmjservice.characters;
                   let i = index;
                   let isfirst = first;
                   let isLast = last;
                   let isEven = even;
                   let isOdd = odd;"
-                  class="list-group-item"
+                  class="list-group-item d-flex justify-content-between align-items-center"
                   [ngClass]="{ 'list-group-item-success': isfirst,
                   'list-group-item-primary': isLast,
                   'list-group-item-dark': isEven
                  }">
+                 <div class="col">
                   <span class="text-primary"> {{i}}.&nbsp;</span>
-                  {{character.descripcionSeguro}} - {{character.importeSeguro}}
+                  {{mmmjservice.descripcionSeguro}} - {{mmmjservice.importeSeguro}}
+                </div>
+                <!--<button (click)="mmmjservice.onDeleteCharacter(1)" class="btn btn-danger">Borrar línea</button>-->
+                <!--<button (click)="mmmjservice.deleteCharacterById('no lo se')" class="btn btn-danger"><strong>Borrar línea</strong></button>-->
+                <!--<button (onDelete)="onDeleteCharacter('545454')" class="btn btn-danger"><strong>Borrar línea</strong></button>-->
+
+                <button (click)="onDeleteCharacter('d4517838-0e24-4606-9b47-8273711cc648' || 'NULL')" class="btn btn-danger"><strong>Borrar línea</strong></button>
       </li>
   </ol>
 
-    <!--Mostramos lista (se carga desde elmain-page.comoponent.ts)-->
-    <mmmj-list (onNewCharacter)="onNewCharacter"></mmmj-list>
+  <!--<button (click)="onDeleteCharacter('' || 'NULL')" class="btn btn-danger"><strong>Borrar línea</strong></button>-->
+  <!--Mostramos lista (se carga desde elmain-page.comoponent.ts)-->
+    <add-character (onNewCharacter)="onNewCharacter($event)"></add-character>
     <br>
     <hr>
-    <br>
+    <!--<br>
     <add-character>
       {{ characters }}
-    </add-character>
-
-  </div>
-
+    </add-character>-->
 </div>
 <!--
 Colorea toda la lista

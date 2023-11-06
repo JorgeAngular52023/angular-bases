@@ -1,9 +1,14 @@
-<p>Añadir Seguros!</p>
+
+<br><br>
+<hr>
+<p><strong><mark>-AÑADIR SEGUROS NUEVOS-</mark></strong></p>
 
 <div class="col">
   <h4>Seguro nuevo</h4>
-  <form class="row" (ngSubmit)="AddSeguro()">
-    <input type="text"class="form-control mb-2" placeholder="Seguro">
+
+  <!--<form class="row" (ngSubmit)="AddSeguro()"></form>-->
+  <form class="row">
+    <!--<input type="text"class="form-control mb-2" placeholder="Seguro">-->
 
     <input type="text"
     [(ngModel)]="character.descripcionSeguro"
@@ -16,13 +21,12 @@
     name="importeSeguro"
     class="form-control mb-2"
     placeholder="Importe">
+
     <br>
     <button (click)="AddSeguro()" type="submit" class="btn btn-primary">
       Añadir Seguro
     </button>
-
-    <pre>{{ character | json }}</pre>
-
+    <!--<pre>{{ character | json }}</pre>-->
   </form>
  </div>
 

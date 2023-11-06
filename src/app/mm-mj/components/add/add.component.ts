@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Character } from 'src/app/mm-mj/interfaces/character.interface';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'add-character',
@@ -12,8 +13,13 @@ export class AddComponent {
     //Creamos instáncia de eventos
     @Output()
     public onNewCharacter: EventEmitter<Character> = new EventEmitter();
+    @Output()
+    public deleteCharacterById: EventEmitter<number> = new EventEmitter();
+    @Output()
+    public onDeleteCharacter: EventEmitter<number> = new EventEmitter();
 
     public character: Character = {
+    id: uuid(),
     descripcionSeguro: '',
     importeSeguro: 0,
   }
@@ -28,19 +34,9 @@ export class AddComponent {
     if ( this.character.descripcionSeguro.length === 0
         && this.character.importeSeguro === 0)
     {
-      //if (numVeces === 0)
-      //{
-      //  numVeces = 1
         alert('La descripción y el importe han de estar cumplimentados')
         return;
-      //}
     }
-
-    //if ( this.character.importeSeguro === 0)
-    //{
-    //  alert('Ha de rellenar importe')
-    //  return;
-    //}
 
     this.onNewCharacter.emit(this.character)
 
@@ -50,5 +46,4 @@ export class AddComponent {
     alert('Hemos añadiro un seguro nuevo a la lista')
 
   }
-
 }
